@@ -22,10 +22,17 @@ When asked to create a portal for a specific industry (e.g., "Plumber"), follow 
 
 ## API Usage Pattern
 ```tsx
-// Example of how to update a lead status
-const { mutate: updateStatus } = useUpdateStatus();
+// Example of how to update any lead field (name, phone, status, etc.)
+const { mutate: updateLead } = useUpdateLead();
 
-const handleWin = (leadId: string) => {
-  updateStatus({ leadId, status: 'gagne' });
+const handleUpdate = (leadId: string) => {
+  updateLead({ 
+    leadId, 
+    data: { 
+      status: 'gagne',
+      phone: '06 00 00 00 00',
+      note: 'Client très intéressé par la pose de panneaux.'
+    } 
+  });
 };
 ```

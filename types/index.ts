@@ -8,30 +8,39 @@ export interface Lead {
     name: string;
     firstName?: string | null;
     lastName?: string | null;
-    email?: string;
-    phone?: string;
-    zip_code?: string;
+    email?: string | null;
+    phone?: string | null;
+    zip_code?: string | null;
     company?: string | null;
     status: LeadStatus;
-    source?: string;
+    source?: string | null;
     amount?: number | null;
     qualification_status: LeadQualificationStatus;
     created_at: string;
-    utm_data?: Record<string, unknown>;
-    gclid?: string;
-    metadata?: Record<string, unknown>;
-    landing_page?: string;
-    message?: string;
-    note?: string;
+    utm_data?: Record<string, unknown> | null;
+    gclid?: string | null;
+    fbclid?: string | null;
+    metadata?: Record<string, unknown> | null;
+    landing_page?: string | null;
+    conversion_page?: string | null;
+    message?: string | null;
+    note?: string | null;
+    loss_reason?: string | null;
 }
 
-export interface Client {
-    id: string;
-    name: string;
-    website?: string;
-    contact_email?: string;
-    created_at: string;
-    status?: 'active' | 'inactive';
+export interface UpdateLeadData {
+    name?: string;
+    firstName?: string | null;
+    lastName?: string | null;
+    email?: string | null;
+    phone?: string | null;
+    zip_code?: string | null;
+    amount?: number | null;
+    status?: LeadStatus;
+    note?: string | null;
+    loss_reason?: string | null;
+    company?: string | null;
+    landing_page?: string | null;
 }
 
 export interface LeadsStatsSummary {
